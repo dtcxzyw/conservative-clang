@@ -1,0 +1,37 @@
+name: Build
+
+on: 
+  schedule:
+  - cron: "0 0 * * *"
+
+  workflow_dispatch:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Install dependencies (Linux)
+      run: |
+        wget -O- https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
+        sudo add-apt-repository "deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy main"
+        sudo apt-get update
+        sudo apt-get install ninja-build clang llvm-dev
+
+    - name: Compile
+      run: |
+        mkdir -p build && cd build
+        cmake -G Ninja -DCMAKE_BUILD_TYPE=Release ..
+        cmake --build . -j
+
+    - name: Test
+      run: |
+        echo "int add(int a, int b) { return a + b; }" > test.c
+        clang -fpass-plugin=./cclang.so test.c -S -emit-llvm
+        cat test.ll | grep -vqz "nsw"
+      working-directory: build
