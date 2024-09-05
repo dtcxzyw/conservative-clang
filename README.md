@@ -4,13 +4,13 @@ Conservative-Clang: An early LLVM pass which removes most of UB-implying informa
 
 If you are fighting with C/C++ undefined behavior (or clang miscompilation bugs), please try this tool :)
 
-Before using this pass, please try with the following compilation flags in [clang-flags.txt](./clang-flags.txt):
+Before using the pass, please try with the following compilation flags in [clang-flags.txt](./clang-flags.txt):
 
 ```
 -fwrapv -fno-check-new -fno-delete-null-pointer-checks -fno-strict-aliasing -fno-strict-enums -fno-strict-float-cast-overflow -fno-strict-return -fno-strict-vtable-pointers -fno-struct-path-tbaa -fno-pointer-tbaa -fno-assume-nothrow-exception-dtor -fno-assume-sane-operator-new -fno-assume-unique-vtables -fno-assumptions -fno-finite-loops -fno-common -mno-global-merge -fno-merge-all-constants
 ```
 
-If these "magical formula" does not work, please try this pass.
+If this "magical formula" does not work, please try the LLVM pass.
 
 This work is inspired by Daniel J. Bernstein's [blog](https://blog.cr.yp.to/20240803-clang.html). I hope this work can unblock your project at the prototype stage.
 
