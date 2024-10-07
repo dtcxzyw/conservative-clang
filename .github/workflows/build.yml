@@ -21,7 +21,7 @@ jobs:
         wget -O- https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
         sudo add-apt-repository "deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy main"
         sudo apt-get update
-        sudo apt-get install ninja-build clang llvm-dev libpolly-20-dev clang-tools-20 libllvmlibc-20-dev libmlir-20-dev mlir-20-tools
+        sudo apt-get install ninja-build clang llvm-dev
 
     - name: Compile
       run: |
