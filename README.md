@@ -7,7 +7,7 @@ If you are fighting with C/C++ undefined behavior (or clang miscompilation bugs)
 Before using the pass, please try with the following compilation flags in [clang-flags.txt](./clang-flags.txt):
 
 ```
--fwrapv -fno-check-new -fno-delete-null-pointer-checks -fno-strict-aliasing -fno-strict-enums -fno-strict-float-cast-overflow -fno-strict-return -fno-strict-vtable-pointers -fno-struct-path-tbaa -fno-pointer-tbaa -fno-assume-nothrow-exception-dtor -fno-assume-sane-operator-new -fno-assume-unique-vtables -fno-assumptions -fno-finite-loops -fno-common -mno-global-merge -fno-merge-all-constants
+-fwrapv -fno-check-new -fno-delete-null-pointer-checks -fno-strict-aliasing -fno-strict-enums -fno-strict-float-cast-overflow -fno-strict-return -fno-strict-vtable-pointers -fno-struct-path-tbaa -fno-pointer-tbaa -fno-assume-nothrow-exception-dtor -fno-assume-sane-operator-new -fno-assume-unique-vtables -fno-assumptions -fno-finite-loops -fno-common -mno-global-merge -fno-merge-all-constants -fno-strict-overflow
 ```
 
 If this "magical formula" does not work, please try the LLVM pass.
