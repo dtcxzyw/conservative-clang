@@ -49,7 +49,7 @@ public:
                                            Attribute::Dereferenceable,
                                            Attribute::DereferenceableOrNull,
                                            Attribute::NoAlias,
-                                           Attribute::NoCapture,
+                                           Attribute::Captures,
                                            Attribute::Range,
                                            Attribute::Alignment,
                                            Attribute::NoFree,
