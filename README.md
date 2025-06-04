@@ -40,6 +40,7 @@ If you are using CMake, please pass `-DCMAKE_C_FLAGS=-fpass-plugin=<path to cons
 ## Performance
 
 I did some performance evaluation on llvm test-suite. This pass can result in ~10% performance degradation on average.
+A [PLDI'25 paper](https://web.ist.utl.pt/nuno.lopes/pubs/ub-pldi25.pdf) claims that most of the performance degradation (due to not leveraging UB in Clang frontend) can be recovered by LTO :)
 
 ## License
 
