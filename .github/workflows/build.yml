@@ -35,6 +35,6 @@ jobs:
     - name: Test
       run: |
         echo "int add(int a, int b) { return a + b; }" > test.c
-        clang-21 -fpass-plugin=./cclang.so test.c -S -emit-llvm
+        clang-22 -fpass-plugin=./cclang.so test.c -S -emit-llvm
         cat test.ll | grep -vqz "nsw"
       working-directory: build
