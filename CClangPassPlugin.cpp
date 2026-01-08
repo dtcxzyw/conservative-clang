@@ -15,7 +15,7 @@
 
 #include "CClangPass.hpp"
 #include <llvm/Passes/PassBuilder.h>
-#include <llvm/Passes/PassPlugin.h>
+#include <llvm/Plugins/PassPlugin.h>
 
 static PassPluginLibraryInfo getCClangPluginInfo() {
   return {LLVM_PLUGIN_API_VERSION, "CClang", LLVM_VERSION_STRING,
