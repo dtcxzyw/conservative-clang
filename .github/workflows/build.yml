@@ -21,10 +21,10 @@ jobs:
         wget -O- https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
         sudo add-apt-repository "deb http://apt.llvm.org/noble/ llvm-toolchain-noble main"
         # Workaround for issue https://github.com/llvm/llvm-project/issues/133861
-        sudo ln -s /usr/lib/llvm-23/lib /usr/lib/lib
-        sudo ln -s /usr/lib/llvm-23/include /usr/lib/include
+        sudo ln -s /usr/lib/llvm-24/lib /usr/lib/lib
+        sudo ln -s /usr/lib/llvm-24/include /usr/lib/include
         sudo apt-get update
-        sudo apt-get install ninja-build clang-23 llvm-23-dev
+        sudo apt-get install ninja-build clang-24 llvm-24-dev
 
     - name: Compile
       run: |
@@ -35,6 +35,6 @@ jobs:
     - name: Test
       run: |
         echo "int add(int a, int b) { return a + b; }" > test.c
-        clang-23 -fpass-plugin=./cclang.so test.c -S -emit-llvm
+        clang-24 -fpass-plugin=./cclang.so test.c -S -emit-llvm
         cat test.ll | grep -vqz "nsw"
       working-directory: build
