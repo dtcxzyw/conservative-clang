@@ -21,7 +21,7 @@
 #include <llvm/IR/Intrinsics.h>
 #include <llvm/IR/LLVMContext.h>
 
-class CClangPass : public PassInfoMixin<CClangPass> {
+class CClangPass : public RequiredPassInfoMixin<CClangPass> {
 public:
   PreservedAnalyses run(Module &M, ModuleAnalysisManager &MAM) {
     for (auto &F : M) {
